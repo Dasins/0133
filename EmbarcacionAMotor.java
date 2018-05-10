@@ -13,4 +13,10 @@ public class EmbarcacionAMotor extends Barco {
     public int getBernua() {
         return 0;
     }
+    
+    public String toString(){
+    String aDevolver = super.toString();
+    aDevolver += "\rCV :" + cv; 
+    return aDevolver;
+    }
 }
