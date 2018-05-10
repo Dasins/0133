@@ -1,35 +1,58 @@
 
 /**
- * Write a description of class Velero here.
+ * Representa una embarcacion a vela.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Pertenece al proyecto '0133'.
+ * 
+ * Un velero se caracteriza por tener mastiles. Su coeficiente de 
+ * Bernua es igual a : su numero de mastiles.
+ * 
+ * @author nacho, d4sins
+ * @version 2018/05/09
  */
 public class Velero extends Barco
 {
-    // instance variables - replace the example below with your own
+    // Cantidad de mastiles.
     private int numMastiles;
 
     /**
-     * Constructor for objects of class Velero
+     * Constructor - Crea un velero. 
+     * No se comprueba si el velero tiene al menos un mastil, como
+     * seria logico. Se da por hecho que los valores introducidos
+     * son validos.
      */
-    public Velero(String matricula, Cliente propietario, double eslora, String anoFabricacion, int numMastiles)
+    public Velero(String matricula, double eslora, int anoFabricacion, 
+                  Persona propietario, int numMastiles)
     {
-        super(matricula,propietario,eslora,anoFabricacion);
+        super(matricula, eslora, anoFabricacion, propietario);
         this.numMastiles = numMastiles;
     }
-
+    
+    /**
+     * Devuelve el numero de mastiles del barco.
+     * @return Devuelve el numero de mastiles del barco.
+     */
     public int getNumMastiles() {
         return numMastiles;
     }
     
+    /**
+     * Devuelve el coeficiente de Bernua del barco.
+     * @return Devuelve el coeficiente de Bernua del barco.
+     */
+    @Override
     public int getBernua() {
-        return 0;
+        return numMastiles;
     }
     
+    /**
+     * Devuelve la informacion del barco como una cadena.
+     * @return Devuelve la informacion del barco como una cadena.
+     */
+    @Override
     public String toString(){
-    String aDevolver = super.toString();
-    aDevolver += "\rMASTILES :" + numMastiles; 
-    return aDevolver;
+        String aDevolver = super.toString();
+        aDevolver += "\rMASTILES: " + numMastiles; 
+        return aDevolver;
     }
 }
